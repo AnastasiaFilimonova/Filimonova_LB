@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Desktop.utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,13 +43,13 @@ namespace Desktop
             string password2 = textBox3.Text;
 
             // Проверяем введенные данные
-            if (!InputValidator.IsValidName(name))
+            if (!name.IsValidName())
             {
                 MessageBox.Show("Имя должно содержать не менее 3 символов!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (!InputValidator.IsValidEmail(email))
+            if (!email.IsValidEmail())
             {
                 MessageBox.Show("Неверный формат почты! Почта должна быть в формате *@*.*", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -106,29 +107,6 @@ namespace Desktop
         private void UpdateWatermark3()
         {
             watermark3.Visibility = string.IsNullOrWhiteSpace(textBox3.Text) ? Visibility.Visible : Visibility.Collapsed;
-        }
-    }
-
-    // Класс для проверки ввода
-    public static class InputValidator
-    {
-        public static bool IsValidEmail(string email)
-        {
-
-            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return Regex.IsMatch(email, emailPattern);
-        }
-
-        // Метод для проверки пароля (не менее 6 символов)
-        public static bool IsValidPassword(string password)
-        {
-            return password.Length >= 6;
-        }
-
-        // Метод для проверки имени ( не менее 3 символов)
-        public static bool IsValidName(string name)
-        {
-            return name.Length >= 3;
         }
     }
 }

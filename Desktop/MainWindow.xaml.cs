@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Desktop.utils;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,12 +37,12 @@ namespace Desktop
             string email = textBox.Text;
             string password = textBox1.Text;
             // Проверка введенных данных с использованием класса InputValidator
-            if (!InputValidator.IsValidEmail(email))
+            if (!email.IsValidEmail())
             {
                 MessageBox.Show("Неверный формат почты! Почта должна быть в формате *@*.*", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (!InputValidator.IsValidPassword(password))
+            if (!password.IsValidPassword())
             {
                 MessageBox.Show("Пароль должен содержать не менее 6 символов!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -50,24 +51,6 @@ namespace Desktop
             win2.Show();
             this.Close();
         }
-
-        // Класс для проверки корректности ввода
-        public static class InputValidator
-        {
-            public static bool IsValidEmail(string email)
-            {
-
-                string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-                return Regex.IsMatch(email, emailPattern);
-            }
-
-            // Метод для проверки пароля (не менее 6 символов)
-            public static bool IsValidPassword(string password)
-            {
-                return password.Length >= 6;
-            }
-        }
-
         // Обновление watermark для текстовых полей
         private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
