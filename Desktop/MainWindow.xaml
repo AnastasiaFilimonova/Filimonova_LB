@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" MinWidth="800" MinHeight="600">
     <Grid Height="600" Width="800" Margin="0,0,0,-16">
-        <Image Height="148" Margin="71,62,580,0" VerticalAlignment="Top" Width="149" Source="/logo.png" />
+        <Image Height="148" Margin="71,62,580,0" VerticalAlignment="Top" Width="149" Source="/images/logo.png"/>
         <WrapPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Height="544" Width="449" Margin="326,30,0,0"/>
         <Label Content="Добро пожаловать!" Margin="366,30,152,0" VerticalAlignment="Top" FontSize="30" Width="282" Height="49"/>
         <Label Content="Почта" Margin="366,177,368,0" VerticalAlignment="Top" FontSize="20" Width="65" Height="36"/>
