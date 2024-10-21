@@ -20,8 +20,6 @@ namespace Desktop.utils
             string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(email, emailPattern);
         }
-
-        // Метод для проверки пароля (не менее 6 символов)
         public static bool IsValidPassword(this string password)
         {
             return password.Length >= 6;
